@@ -1,0 +1,16 @@
+C:\Users\Schoo\Documents\CSharp\DumbledoresArmee\DumbledoresArmee\bin\Debug\net6.0-windows\DumbledoresArmee.exe
+C:\Users\Schoo\Documents\CSharp\DumbledoresArmee\DumbledoresArmee\bin\Debug\net6.0-windows\DumbledoresArmee.deps.json
+C:\Users\Schoo\Documents\CSharp\DumbledoresArmee\DumbledoresArmee\bin\Debug\net6.0-windows\DumbledoresArmee.runtimeconfig.json
+C:\Users\Schoo\Documents\CSharp\DumbledoresArmee\DumbledoresArmee\bin\Debug\net6.0-windows\DumbledoresArmee.dll
+C:\Users\Schoo\Documents\CSharp\DumbledoresArmee\DumbledoresArmee\bin\Debug\net6.0-windows\DumbledoresArmee.pdb
+C:\Users\Schoo\Documents\CSharp\DumbledoresArmee\DumbledoresArmee\obj\Debug\net6.0-windows\DumbledoresArmee.foMain.resources
+C:\Users\Schoo\Documents\CSharp\DumbledoresArmee\DumbledoresArmee\obj\Debug\net6.0-windows\DumbledoresArmee.csproj.GenerateResource.cache
+C:\Users\Schoo\Documents\CSharp\DumbledoresArmee\DumbledoresArmee\obj\Debug\net6.0-windows\DumbledoresArmee.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Schoo\Documents\CSharp\DumbledoresArmee\DumbledoresArmee\obj\Debug\net6.0-windows\DumbledoresArmee.AssemblyInfoInputs.cache
+C:\Users\Schoo\Documents\CSharp\DumbledoresArmee\DumbledoresArmee\obj\Debug\net6.0-windows\DumbledoresArmee.AssemblyInfo.cs
+C:\Users\Schoo\Documents\CSharp\DumbledoresArmee\DumbledoresArmee\obj\Debug\net6.0-windows\DumbledoresArmee.csproj.CoreCompileInputs.cache
+C:\Users\Schoo\Documents\CSharp\DumbledoresArmee\DumbledoresArmee\obj\Debug\net6.0-windows\DumbledoresArmee.dll
+C:\Users\Schoo\Documents\CSharp\DumbledoresArmee\DumbledoresArmee\obj\Debug\net6.0-windows\refint\DumbledoresArmee.dll
+C:\Users\Schoo\Documents\CSharp\DumbledoresArmee\DumbledoresArmee\obj\Debug\net6.0-windows\DumbledoresArmee.pdb
+C:\Users\Schoo\Documents\CSharp\DumbledoresArmee\DumbledoresArmee\obj\Debug\net6.0-windows\DumbledoresArmee.genruntimeconfig.cache
+C:\Users\Schoo\Documents\CSharp\DumbledoresArmee\DumbledoresArmee\obj\Debug\net6.0-windows\ref\DumbledoresArmee.dll
