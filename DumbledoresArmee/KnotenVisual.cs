@@ -19,6 +19,10 @@ namespace DumbledoresArmee
 		/// Das Control, auf dem der Knoten dargestellt wird
 		/// </summary>
 		protected Panel myControl;
+		public Panel MYControl
+		{
+			get { return myControl; }
+		}
 
 		/// <summary>
 		/// Standard-Konstruktor
@@ -31,6 +35,7 @@ namespace DumbledoresArmee
 			int x, int y)
 		{
 			this.myKnoten = knoten;
+			knoten.visual = this;
 			this.myControl = new Panel();
 			setControl(x, y, parent);
 		}

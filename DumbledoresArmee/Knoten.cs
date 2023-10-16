@@ -34,12 +34,18 @@ namespace DumbledoresArmee
 		}
 
 		/// <summary>
+		/// Verweis auf die bildliche Darstellung
+		/// </summary>
+		public KnotenVisualBase visual { get; set;  }
+
+		/// <summary>
 		/// Standard-Konstruktor
 		/// </summary>
 		/// <param name="beschriftung">Die Beschriftung für den Knoten</param>
 		public Knoten(string beschriftung)
 		{
 			this._Beschriftung = beschriftung;
+			this.visual = null;
 		}
 	} //Ende Klasse Knoten
 } //Ende namespace DumbledoresArmee
