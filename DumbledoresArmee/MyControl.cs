@@ -29,8 +29,9 @@ namespace DumbledoresArmee
 			{
 				if (_Left != value)
 				{
+					LocationChangedArgs e = new LocationChangedArgs(
+						this._Left, this._Top);
 					this._Left = value;
-					EventArgs e = new EventArgs();
 					if (this.LocationChanged != null)
 						this.LocationChanged(this, e);
 				}
@@ -55,8 +56,9 @@ namespace DumbledoresArmee
 			{
 				if (_Top != value)
 				{
+					LocationChangedArgs e = new LocationChangedArgs(
+						this._Left, this._Top);
 					this._Top = value;
-					EventArgs e = new EventArgs();
 					if (this.LocationChanged != null)
 						this.LocationChanged(this, e);
 				}
@@ -159,7 +161,21 @@ namespace DumbledoresArmee
 				{
 					Graphics g = this._Parent.CreateGraphics();
 					this.drawControl(g);
+					this.Parent.Paint += Parent_Paint;
 				}
+			}
+		}
+
+		private Color _BackColor;
+		public Color BackColor
+		{
+			get
+			{
+				return this._BackColor;
+			}
+			set
+			{
+				this._BackColor = value;
 			}
 		}
 
@@ -168,12 +184,27 @@ namespace DumbledoresArmee
 			this._Parent= par;
 			if (par != null)
 			{
+				this._BackColor= par.BackColor;
 				Graphics g = par.CreateGraphics();
+				this.drawControl(g);
+			}
+			this.LocationChanged += MyControl_LocationChanged;
+		}
+
+		private void MyControl_LocationChanged(object sender, LocationChangedArgs e)
+		{
+			if (this.Parent != null)
+			{
+				Rectangle r = new Rectangle(
+					e.oldLeft, e.oldTop, this._Width, this._Height);
+				this.Parent.Invalidate(r);
+
+				Graphics g = this.Parent.CreateGraphics();
 				this.drawControl(g);
 			}
 		}
 
-		public delegate void delegateLocation(object sender, EventArgs e);
+		public delegate void delegateLocation(object sender, LocationChangedArgs e);
 		public event delegateLocation LocationChanged;
 
 		public abstract void drawControl(Graphics g);
@@ -181,6 +212,47 @@ namespace DumbledoresArmee
 		public bool isInsideControl(int x, int y)
 		{
 			return true;
+		}
+
+		protected void drawBackGround(Graphics g)
+		{
+			SolidBrush myBrush = new SolidBrush(this.BackColor);
+			Rectangle r = new Rectangle(this.Left, this.Top, this._Width, this._Height);
+			g.FillRectangle(myBrush, r);
+		}
+
+		private void Parent_Paint(object? sender, PaintEventArgs e)
+		{
+			drawControl(e.Graphics);
+		}
+	}
+
+	public class LocationChangedArgs : EventArgs
+	{
+		private int _oldLeft;
+
+		public int oldLeft
+		{
+			get
+			{
+				return this._oldLeft;
+			}
+		}
+
+		private int _oldTop;
+
+		public int oldTop
+		{
+			get
+			{
+				return this._oldTop;
+			}
+		}
+
+		public LocationChangedArgs(int oldLeft, int oldTop)
+		{
+			this._oldLeft = oldLeft;
+			this._oldTop = oldTop;
 		}
 	}
 
@@ -339,21 +411,53 @@ namespace DumbledoresArmee
 			this.End = to;
 			from.LocationChanged += LocationChanged;
 			to.LocationChanged += LocationChanged;
+			this.BackColor = Color.Purple;
+			this.setBounds();
 		}
 
-		private void LocationChanged(object sender, EventArgs e)
+		private void LocationChanged(object sender, LocationChangedArgs e)
 		{
 			Graphics g = this.Parent.CreateGraphics();
 			this.drawControl(g);
+			this.setBounds();
 		}
 
 		public override void drawControl(Graphics g)
 		{
+			//this.drawBackGround(g);
 			Pen myPen = new Pen(Color.Black);
 			myPen.EndCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
 			myPen.Width = 5;
 			List<Point> liste = MyKnotenVisual.calcConnectionPoints(this.Start, this.End);
 			g.DrawLine(myPen, liste[0], liste[1]);
+		}
+
+		private void setBounds()
+		{
+			List<Point> liste = MyKnotenVisual.calcConnectionPoints(this.Start, this.End);
+			Point p1 = liste[0];
+			Point p2 = liste[1];
+			if (p1.X <= p2.X)
+			{
+				this.Left = p1.X;
+				this.Width = p2.X - p1.X;
+			}
+			else
+			{
+				this.Left = p2.X;
+				this.Width = p1.X - p2.X;
+			}
+
+			if (p1.Y <= p2.Y)
+			{
+				this.Top = p1.Y;
+				this.Height = p2.Y - p1.Y;
+			}
+			else
+			{
+				this.Top = p2.Y;
+				this.Height = p1.Y - p2.Y;
+			}
 		}
 	}
 } //Ende namespace DumbledoresArmee

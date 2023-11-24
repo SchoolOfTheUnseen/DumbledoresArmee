@@ -9,6 +9,17 @@ namespace DumbledoresArmee
 			InitializeComponent();
 		}
 
+		private static void wait(int milliSeconds)
+		{
+			DateTime start = DateTime.Now;
+			int diff;
+			do
+			{
+				DateTime current = DateTime.Now;
+				diff = (int)current.Subtract(start).TotalMilliseconds;
+			} while (diff < milliSeconds);
+		}
+
 		private static void drawPoint(Point p, Graphics g)
 		{
 			Brush myBrush = new SolidBrush(Color.Purple);
@@ -82,6 +93,10 @@ namespace DumbledoresArmee
 			//kante1.Parent = this;
 			MyKante kante1 = new MyKante(knotenB, knotenA);
 			kante1.Parent = this;
+
+			wait(2000);
+			knotenA.Left = 500;
+			//knotenA.Top = 150;
 		}
 	}
 }
