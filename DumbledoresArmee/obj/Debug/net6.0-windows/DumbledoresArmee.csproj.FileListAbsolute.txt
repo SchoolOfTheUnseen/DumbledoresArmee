@@ -14,3 +14,4 @@ C:\Users\Schoo\Documents\CSharp\DumbledoresArmee\DumbledoresArmee\obj\Debug\net6
 C:\Users\Schoo\Documents\CSharp\DumbledoresArmee\DumbledoresArmee\obj\Debug\net6.0-windows\DumbledoresArmee.pdb
 C:\Users\Schoo\Documents\CSharp\DumbledoresArmee\DumbledoresArmee\obj\Debug\net6.0-windows\DumbledoresArmee.genruntimeconfig.cache
 C:\Users\Schoo\Documents\CSharp\DumbledoresArmee\DumbledoresArmee\obj\Debug\net6.0-windows\ref\DumbledoresArmee.dll
+C:\Users\Schoo\Documents\CSharp\DumbledoresArmee\DumbledoresArmee\obj\Debug\net6.0-windows\DumbledoresArmee.sourcelink.json
