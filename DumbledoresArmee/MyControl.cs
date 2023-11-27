@@ -404,6 +404,7 @@ namespace DumbledoresArmee
 	{
 		MyKnotenVisual Start;
 		MyKnotenVisual End;
+		private const int PenWidth = 5;
 
 		public MyKante(MyKnotenVisual from, MyKnotenVisual to)
 		{
@@ -427,7 +428,7 @@ namespace DumbledoresArmee
 			//this.drawBackGround(g);
 			Pen myPen = new Pen(Color.Black);
 			myPen.EndCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
-			myPen.Width = 5;
+			myPen.Width = PenWidth;
 			List<Point> liste = MyKnotenVisual.calcConnectionPoints(this.Start, this.End);
 			g.DrawLine(myPen, liste[0], liste[1]);
 		}
@@ -458,6 +459,12 @@ namespace DumbledoresArmee
 				this.Top = p2.Y;
 				this.Height = p1.Y - p2.Y;
 			}
+
+			//Die Ränder werden sonst unschön
+			this.Left -= PenWidth;
+			this.Top -= PenWidth;
+			this.Width += 2 * PenWidth;
+			this.Height += 2 * PenWidth;
 		}
 	}
 } //Ende namespace DumbledoresArmee
