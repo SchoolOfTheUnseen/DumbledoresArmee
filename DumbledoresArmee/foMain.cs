@@ -97,6 +97,11 @@ namespace DumbledoresArmee
 			wait(2000);
 			knotenA.Left = 500;
 			//knotenA.Top = 150;
+
+
+			wait(2000);
+			DijkstraKnoten dKnoten = new DijkstraKnoten("B");
+			DijkstraKnotenVisual dVisual = new DijkstraKnotenVisual(dKnoten, 10, 50, this);
 		}
 	}
 }

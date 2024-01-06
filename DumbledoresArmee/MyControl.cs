@@ -274,23 +274,59 @@ namespace DumbledoresArmee
 			drawControl(e.Graphics);
 		}
 
-		public override void drawControl(Graphics g)
+		protected virtual Color getBorderColor()
 		{
-			Pen myPen = new Pen(Color.Black);
-			//Graphics g = e.Graphics;
+			return Color.Black;
+		}
 
-			for (int i = 0; i < 5; i++)
+		protected virtual int getBorderWidth()
+		{
+			return 5;
+		}
+
+		protected void drawBorder(Graphics g)
+		{
+			Color c = getBorderColor();
+			Pen myPen = new Pen(c);
+
+			//for (int i = 0; i < 5; i++)
+			//	g.DrawEllipse(myPen, i + this.Left, i + this.Top,
+			//		40 - 1 - 2 * i, 40 - 1 - 2 * i);
+			int w = this.getBorderWidth();
+			for (int i = 0; i < w; i++)
 				g.DrawEllipse(myPen, i + this.Left, i + this.Top,
 					40 - 1 - 2 * i, 40 - 1 - 2 * i);
+		}
 
-			Font font = new Font("Times New Roman", 14);
-			Brush myBrush = new SolidBrush(Color.Black);
+		protected virtual Font getFont()
+		{
+			return new Font("Times New Roman", 14);
+		}
+
+		protected Color getSchriftFarbe()
+		{
+			return Color.Black;
+		}
+
+		protected void drawSchrift(Graphics g)
+		{
+			Font font = this.getFont();
+			Color c = getSchriftFarbe();
+			Brush myBrush = new SolidBrush(c);
 			Rectangle rect = new Rectangle(
 				this.Left, this.Top, this.Width, this.Height);
 			StringFormat fo = new StringFormat();
 			fo.Alignment = StringAlignment.Center;
 			fo.LineAlignment = StringAlignment.Center;
+
+			//UNDONE: Beschriftung
 			g.DrawString("A", font, myBrush, rect, fo);
+		}
+
+		public override void drawControl(Graphics g)
+		{
+			drawBorder(g);
+			drawSchrift(g);
 		}
 
 		public Point calcCenter()

@@ -36,7 +36,7 @@ namespace DumbledoresArmee
 		/// <summary>
 		/// Verweis auf die bildliche Darstellung
 		/// </summary>
-		public KnotenVisualBase visual { get; set;  }
+		public MyKnotenVisual visual { get; set;  }
 
 		/// <summary>
 		/// Standard-Konstruktor
@@ -46,6 +46,31 @@ namespace DumbledoresArmee
 		{
 			this._Beschriftung = beschriftung;
 			this.visual = null;
+		}
+
+		/// <summary>
+		/// Speicher die Beschriftung dieses Knotens zusammen mit 
+		/// der Länge der Beschriftung, die vorangestellt wird
+		/// </summary>
+		/// <returns></returns>
+		protected string BeschriftungToSaveString()
+		{
+			int n = this._Beschriftung.Length;
+			StringBuilder result = new StringBuilder();
+			result.Append(n.ToString());
+			while (result.Length < Common.getMaxStringLengthStellen())
+				result.Insert(0, ' ');
+			result.Append(this._Beschriftung);
+			return result.ToString();
+		}
+
+		/// <summary>
+		/// Wandelt diesen Knoten in einen String zum Speichern um
+		/// </summary>
+		/// <returns></returns>
+		public virtual string toSaveString()
+		{
+			return this.BeschriftungToSaveString();
 		}
 	} //Ende Klasse Knoten
 } //Ende namespace DumbledoresArmee
